@@ -8,6 +8,7 @@ spec:
     configuration:
       revisionTemplate:
         spec:
+          containerConcurrency: 1
           container:
             image: gcr.io/hellome-257414/knative-app:0.2
             env:
