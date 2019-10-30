@@ -1,15 +1,13 @@
 apiVersion: serving.knative.dev/v1alpha1
-kind: Service
-metadata:
-  name: helloworld-knative
-  namespace: default
-spec:
-  runLatest:
-   configuration:
-    revisionTemplate:
-     spec:
-      container:
-       image: "gcr.io/hellome-257414/knative-app:0.2"
-       env:
-        - name : TARGET
-          value: "Spring Boot - Data Service"
+   kind: Service
+   metadata:
+     name: helloworld-knative
+     namespace: default
+   spec:
+     template:
+       spec:
+         containers:
+           - image: gcr.io/hellome-257414/knative-app:0.2
+             env:
+               - name: TARGET
+                 value: "Spring Boot - Data Service"
