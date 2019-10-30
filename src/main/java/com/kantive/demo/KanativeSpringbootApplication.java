@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @SpringBootApplication
 public class KanativeSpringbootApplication {
 
@@ -17,7 +19,18 @@ public class KanativeSpringbootApplication {
     class HelloworldController {
         @GetMapping("/")
         String hello() {
+
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             return "Hello " + target + "!";
+
+
+
         }
     }
 
